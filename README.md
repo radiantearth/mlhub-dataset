@@ -1,53 +1,49 @@
 # Template Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
-- **Scope:** Item, Collection
+- **Title:** MLHub Dataset
+- **Identifier:** <https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json>
+- **Field Name Prefix:** mlhds
+- **Scope:** Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @KennSmithDS
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-This is the place to add a short introduction.
+This document explains the MLHub Dataset Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification. An MLHub Dataset is a STAC **Catalog**, in that it contains multiple children **Collection** and related **Item** STAC objects. However, the use-case is specific to when a datset is published onto the Radiant MLHub web page and API. There are additional metadata properties which are stored in the Catalog which are then used to construct a complete row for insertion into the `mlhub.dataset` table in our private PostgreSQL database on the MLHub back-end. These properties in the database are then parsed by the front-end and rendered in HTML. They are properties specific to Radiant MLHub's dataset publishing workflow only.
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
   - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
-## Item Properties and Collection Fields
+## Collection Fields
 
-| Field Name           | Type                      | Description |
-| -------------------- | ------------------------- | ----------- |
-| template:new_field   | string                    | **REQUIRED**. Describe the required field... |
-| template:xyz         | [XYZ Object](#xyz-object) | Describe the field... |
-| template:another_one | \[number]                 | Describe the field... |
+| Field Name             | Type                                       | Description                                                       |
+| ---------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
+| mlhds:creator_contact  | [CreatorContact](#creator-contact)         | **REQUIRED**. The primary creator and point of contact            |
+| mlhds:publications     | \[[ExternalResource](#external-resource)]  | List of the publications associated with the dataset              |
+| mlhds:tools_apps       | \[[ExternalResource](#external-resource)]  | List of the tools and applications used in dataset generation     |
+| mlhds:tutorials        | \[[ExternalResource](#external-resource)]  | List of tutorials such as jupyter notebooks or github repos       |
+| mlhds:tags             | \[string]                                  | **REQUIRED**. List of keywords to populate the webpage tag filter |
+| mlhds:long_description | string                                     | **REQUIRED**. Multiparagraph descript that appears on the webpage |
 
-### Additional Field Information
+### CreatorContact Object
 
-#### template:new_field
+This object provides reference to the primary point of contact for the dataset and their organizational affiliation, e.g. their email and name of research institution. Each value in both the `contact` and `creator` fields are strings, but both can also be single comma delineated strings to add more contact and creator details.
 
-This is a much more detailed description of the field `template:new_field`...
+| Field Name  | Type   | Description                                                         |
+| ----------- | ------ | ------------------------------------------------------------------- |
+| contact     | string | **REQUIRED**. Email address(es) of the primary points of contact    |
+| creator     | string | **REQUIRED**. Name and URL of affiliated institutions (in markdown) |
 
-### XYZ Object
+### ExternalResource Object
 
-This is the introduction for the purpose and the content of the XYZ Object...
+This is a more abstract object describes an external resource that is somehow relevant to the dataset being published. This object is used by the `publications`, `tutorials`, and `tools and applications` fields, as they all share the same key/value pairs of nested attributes.
 
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| x           | number | **REQUIRED**. Describe the required field... |
-| y           | number | **REQUIRED**. Describe the required field... |
-| z           | number | **REQUIRED**. Describe the required field... |
-
-## Relation types
-
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type                | Description |
-| ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+| Field Name   | Type   | Description |
+| ------------ | ------ | ----------- |
+| url          | string | URL for an external resource, e.g. a link to GitHub page, or PDF, etc. |
+| title        | string | The title of the linked document or resource                           |
+| author_url   | string | Webpage or social media account of the author(s)                       |
+| author_name  | string | Name(s) of the author(s) who created the external resource referrenced |
 
 ## Contributing
 
