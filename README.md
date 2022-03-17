@@ -1,4 +1,4 @@
-# Template Extension Specification
+# MLHub Dataset Extension Specification
 
 - **Title:** MLHub Dataset
 - **Identifier:** <https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json>
