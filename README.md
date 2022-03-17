@@ -18,10 +18,10 @@ This document explains the MLHub Dataset Extension to the [SpatioTemporal Asset 
 
 | Field Name             | Type                                       | Description                                                       |
 | ---------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
-| mlhds:creator_contact  | [CreatorContact](#CreatorContact%20Object)         | **REQUIRED**. The primary creator and point of contact            |
-| mlhds:publications     | \[[ExternalResource](#ExternalResource%20Object)]  | List of the publications associated with the dataset              |
-| mlhds:tools_apps       | \[[ExternalResource](#ExternalResource%20Object)]  | List of the tools and applications used in dataset generation     |
-| mlhds:tutorials        | \[[ExternalResource](#ExternalResource%20Object)]  | List of tutorials such as jupyter notebooks or github repos       |
+| mlhds:creator_contact  | [CreatorContact](#contactcreator-object)         | **REQUIRED**. The primary creator and point of contact            |
+| mlhds:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
+| mlhds:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
+| mlhds:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
 | mlhds:tags             | \[string]                                  | **REQUIRED**. List of keywords to populate the webpage tag filter |
 | mlhds:long_description | string                                     | **REQUIRED**. Multiparagraph descript that appears on the webpage |
 
