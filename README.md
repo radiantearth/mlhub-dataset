@@ -18,7 +18,7 @@ This document explains the MLHub Dataset Extension to the [SpatioTemporal Asset 
 
 | Field Name             | Type                                       | Description                                                       |
 | ---------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
-| mlhds:creator_contact  | [CreatorContact](#contactcreator-object)         | **REQUIRED**. The primary creator and point of contact            |
+| mlhds:creator_contact  | [CreatorContact](#creatorcontact-object)         | **REQUIRED**. The primary creator and point of contact            |
 | mlhds:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
 | mlhds:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
 | mlhds:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
