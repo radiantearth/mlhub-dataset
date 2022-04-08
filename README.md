@@ -1,13 +1,13 @@
-# MLHub Dataset Extension Specification
+# MLHub Extension Specification
 
-- **Title:** MLHub Dataset
-- **Identifier:** <https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json>
-- **Field Name Prefix:** mlhds
+- **Title:** MLHub
+- **Identifier:** <https://stac-extensions.github.io/mlhub/v1.0.0/schema.json>
+- **Field Name Prefix:** mlhub
 - **Scope:** Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @KennSmithDS
 
-This document explains the MLHub Dataset Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification. An MLHub Dataset is a STAC **Catalog**, in that it contains multiple children **Collection** and related **Item** STAC objects. However, the use-case is specific to when a datset is published onto the Radiant MLHub web page and API. There are additional metadata properties which are stored in the Catalog which are then used to construct a complete row for insertion into the `mlhub.dataset` table in our private PostgreSQL database on the MLHub back-end. These properties in the database are then parsed by the front-end and rendered in HTML. They are properties specific to Radiant MLHub's dataset publishing workflow only.
+This document explains the MLHub Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification. An MLHub Extension is a STAC **Catalog**, in that it contains multiple children **Collection** and related **Item** STAC objects. However, the use-case is specific to when a datset is published onto the Radiant MLHub web page and API. There are additional metadata properties which are stored in the Catalog which are then used to construct a complete row for insertion into the `mlhub.dataset` table in our private PostgreSQL database on the MLHub back-end. These properties in the database are then parsed by the front-end and rendered in HTML. They are properties specific to Radiant MLHub's dataset publishing workflow only.
 
 - Examples:
   - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
@@ -18,12 +18,12 @@ This document explains the MLHub Dataset Extension to the [SpatioTemporal Asset 
 
 | Field Name             | Type                                       | Description                                                       |
 | ---------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
-| mlhds:creator_contact  | [CreatorContact](#creatorcontact-object)         | **REQUIRED**. The primary creator and point of contact            |
-| mlhds:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
-| mlhds:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
-| mlhds:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
-| mlhds:tags             | \[string]                                  | **REQUIRED**. List of keywords to populate the webpage tag filter |
-| mlhds:long_description | string                                     | **REQUIRED**. Multiparagraph descript that appears on the webpage |
+| mlhub:creator_contact  | [CreatorContact](#creatorcontact-object)         | **REQUIRED**. The primary creator and point of contact            |
+| mlhub:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
+| mlhub:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
+| mlhub:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
+| mlhub:tags             | \[string]                                  | **REQUIRED**. List of keywords to populate the webpage tag filter |
+| mlhub:long_description | string                                     | **REQUIRED**. Multiparagraph descript that appears on the webpage |
 
 ### CreatorContact Object
 
