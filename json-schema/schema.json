@@ -1,50 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/template/v1.0.0/schema.json#",
-  "title": "Template Extension",
-  "description": "STAC Template Extension for STAC Items and STAC Collections.",
+  "$id": "https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json#",
+  "title": "MLHub Dataset Extention",
+  "description": "Radiant Earth Foundation MLHub Extension for STAC Collections.",
   "oneOf": [
-    {
-      "$comment": "This is the schema for STAC Items. Remove this object if this extension only applies to Collections.",
-      "allOf": [
-        {
-          "$ref": "#/definitions/stac_extensions"
-        },
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "properties",
-            "assets"
-          ],
-          "properties": {
-            "type": {
-              "const": "Feature"
-            },
-            "properties": {
-              "allOf": [
-                {
-                  "$comment": "Require fields here for Item Properties.",
-                  "required": [
-                    "template:new_field"
-                  ]
-                },
-                {
-                  "$ref": "#/definitions/fields"
-                }
-              ]
-            },
-            "assets": {
-              "$comment": "This validates the fields in Item Assets, but does not require them.",
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/definitions/fields"
-              }
-            }
-          }
-        }
-      ]
-    },
     {
       "$comment": "This is the schema for STAC Collections.",
       "type": "object",
@@ -68,76 +27,12 @@
           "$comment": "This is the schema for the top-level fields in a Collection. Remove this if this extension does not define top-level fields for Collections.",
           "allOf": [
             {
-              "$comment": "Require fields here for Collections (top-level).",
-              "required": [
-                "template:new_field"
-              ]
+              "$ref": "#/definitions/required_fields"
             },
             {
               "$ref": "#/definitions/fields"
             }
           ]
-        },
-        {
-          "$comment": "This validates the fields in Collection Assets, but does not require them.",
-          "required": [
-            "assets"
-          ],
-          "properties": {
-            "assets": {
-              "type": "object",
-              "not": {
-                "additionalProperties": {
-                  "not": {
-                    "allOf": [
-                      {
-                        "$ref": "#/definitions/require_any_field"
-                      },
-                      {
-                        "$ref": "#/definitions/fields"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "$comment": "This is the schema for the fields in Item Asset Definitions. It doesn't require any fields.",
-          "required": [
-            "item_assets"
-          ],
-          "properties": {
-            "item_assets": {
-              "type": "object",
-              "not": {
-                "additionalProperties": {
-                  "not": {
-                    "allOf": [
-                      {
-                        "$ref": "#/definitions/require_any_field"
-                      },
-                      {
-                        "$ref": "#/definitions/fields"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "$comment": "This is the schema for the fields in Summaries. By default, only checks the existance of the properties, but not the schema of the summaries.",
-          "required": [
-            "summaries"
-          ],
-          "properties": {
-            "summaries": {
-              "$ref": "#/definitions/require_any_field"
-            }
-          }
         }
       ]
     }
@@ -152,58 +47,107 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+            "const": "https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json"
           }
         }
       }
     },
-    "require_any_field": {
+    "required_fields": {
       "$comment": "Please list all fields here so that we can force the existance of one of them in other parts of the schemas.",
-      "anyOf": [
-        {"required": ["template:new_field"]},
-        {"required": ["template:xyz"]},
-        {"required": ["template:another_one"]}
+      "allOf": [
+        {"required": ["mlhub:tags"]},
+        {"required": ["mlhub:long_description"]},
+        {"required": ["mlhub:creator_contact"]}
       ]
     },
     "fields": {
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
-        "template:new_field": {
-          "type": "string"
-        },
-        "template:xyz": {
-          "type": "object",
-          "required": [
-            "x",
-            "y",
-            "z"
-          ],
-          "properties": {
-            "x": {
-              "type": "number"
-            },
-            "y": {
-              "type": "number"
-            },
-            "z": {
-              "type": "number"
-            }
+        "mlhub:tags": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
           }
         },
-        "template:another_one": {
+        "mlhub:long_description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mlhub:creator_contact": {
           "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
           "items": {
-            "type": "number"
+              "$ref": "#/definitions/creator_contact"
+          }
+        },
+        "mlhub:publications": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+              "$ref": "#/definitions/external_resource"
+          }
+        },
+        "mlhub:tools_apps": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+              "$ref": "#/definitions/external_resource"
+          }
+        },
+        "mlhub:tutorials": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+              "$ref": "#/definitions/external_resource"
           }
         }
       },
       "patternProperties": {
-        "^(?!template:)": {
-          "$comment": "Above, change `template` to the prefix of this extension"
-        }
+        "^(?!mlhub:)": {}
       },
       "additionalProperties": false
+    },
+    "creator_contact": {
+      "title": "Creator Contact",
+      "type": "object",
+      "properties": {
+        "contact": {
+          "title": "Primary email address for POC",
+          "type": "string"
+        },
+        "creator": {
+          "title": "Name and URL of affiliations",
+          "type": "string"
+        }
+      }
+    },
+    "external_resource": {
+      "title": "External Resource",
+      "type": "object",
+      "properties": {
+        "url": {
+          "title": "URL to external resource",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title of linked resource",
+          "type": "string"
+        },
+        "author_url": {
+          "title": "Webpage or social media account",
+          "type": "string"
+        },
+        "author_name": {
+          "title": "Name of author(s) of external resource",
+          "type": "string"
+        }
+      }
     }
   }
 }

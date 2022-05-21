@@ -16,14 +16,16 @@ This document explains the MLHub Extension to the [SpatioTemporal Asset Catalog]
 
 ## Collection Fields
 
+For Collections, the fields are placed on the top level of the Collection.
+
 | Field Name             | Type                                       | Description                                                       |
 | ---------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
 | mlhub:creator_contact  | [CreatorContact](#creatorcontact-object)         | **REQUIRED**. The primary creator and point of contact            |
+| mlhub:tags             | \[string]                                  | **REQUIRED**. List of keywords to populate the webpage tag filter |
+| mlhub:long_description | string                                     | **REQUIRED**. Multiparagraph descript that appears on the webpage |
 | mlhub:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
 | mlhub:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
 | mlhub:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
-| mlhub:tags             | \[string]                                  | **REQUIRED**. List of keywords to populate the webpage tag filter |
-| mlhub:long_description | string                                     | **REQUIRED**. Multiparagraph descript that appears on the webpage |
 
 ### CreatorContact Object
 
@@ -44,6 +46,14 @@ This is a more abstract object describes an external resource that is somehow re
 | title        | string | The title of the linked document or resource                           |
 | author_url   | string | Webpage or social media account of the author(s)                       |
 | author_name  | string | Name(s) of the author(s) who created the external resource referrenced |
+
+### Dataset Tags
+
+Tags are a list of keywords added to the dataset's metadata to describe or categorize the catalog, combining one or more words, that improve the user experience by allowing them to filter all the datasets seen on Radiant MLHub catalog to a speicif subset of types, e.g. satellite constellation, machine learning use-case, or data provider.
+
+| Field Name   | Type   | Description |
+| ------------ | ------ | ----------- |
+| tag name     | string | Keyword to populate the dataset filter tags on the front-end |
 
 ## Contributing
 
