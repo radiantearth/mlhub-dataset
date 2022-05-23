@@ -2,10 +2,10 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json#",
   "title": "MLHub Dataset Extention",
-  "description": "Radiant Earth Foundation MLHub Extension for STAC Collections.",
+  "description": "Radiant Earth Foundation MLHub Extension for STAC Catalogs.",
   "oneOf": [
     {
-      "$comment": "This is the schema for STAC Collections.",
+      "$comment": "This is the schema for STAC Catalog.",
       "type": "object",
       "allOf": [
         {
@@ -14,7 +14,7 @@
           ],
           "properties": {
             "type": {
-              "const": "Collection"
+              "const": "Catalog"
             }
           }
         },
@@ -24,7 +24,7 @@
       ],
       "anyOf": [
         {
-          "$comment": "This is the schema for the top-level fields in a Collection. Remove this if this extension does not define top-level fields for Collections.",
+          "$comment": "This is the schema for the top-level fields in a Catalog. Remove this if this extension does not define top-level fields for Catalogs.",
           "allOf": [
             {
               "$ref": "#/definitions/required_fields"

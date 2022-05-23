@@ -1,22 +1,22 @@
 # MLHub Extension Specification
 
 - **Title:** MLHub
-- **Identifier:** <https://stac-extensions.github.io/mlhub/v1.0.0/schema.json>
+- **Identifier:** <https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json>
 - **Field Name Prefix:** mlhub
-- **Scope:** Collection
+- **Scope:** Catalog
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
 - **Owner**: @KennSmithDS
 
 This document explains the MLHub Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification. An MLHub Extension is a STAC **Catalog**, in that it contains multiple children **Collection** and related **Item** STAC objects. However, the use-case is specific to when a datset is published onto the Radiant MLHub web page and API. There are additional metadata properties which are stored in the Catalog which are then used to construct a complete row for insertion into the `mlhub.dataset` table in our private PostgreSQL database on the MLHub back-end. These properties in the database are then parsed by the front-end and rendered in HTML. They are properties specific to Radiant MLHub's dataset publishing workflow only.
 
 - Examples:
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
+  - [Catalog example](examples/catalog.json): Shows the basic usage of the extension in a STAC Catalog
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
-## Collection Fields
+## Catalog Fields
 
-For Collections, the fields are placed on the top level of the Collection.
+For Catalogs, the fields are placed on the top level of the Catalog.
 
 | Field Name             | Type                                       | Description                                                       |
 | ---------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
