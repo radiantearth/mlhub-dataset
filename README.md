@@ -22,7 +22,6 @@ For Catalogs, the fields are placed on the top level of the Catalog.
 | ---------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
 | mlhub:creator_contact  | [CreatorContact](#creatorcontact-object)         | **REQUIRED**. The primary creator and point of contact            |
 | mlhub:tags             | \[string]                                  | **REQUIRED**. List of keywords to populate the webpage tag filter |
-| mlhub:long_description | string                                     | **REQUIRED**. Multiparagraph descript that appears on the webpage |
 | mlhub:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
 | mlhub:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
 | mlhub:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
