@@ -1,7 +1,7 @@
 # MLHub Extension Specification
 
 - **Title:** MLHub
-- **Identifier:** <https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json>
+- **Identifier:** <https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json>
 - **Field Name Prefix:** mlhub
 - **Scope:** Catalog
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
