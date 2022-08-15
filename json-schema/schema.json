@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json#",
+  "$id": "https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json#",
   "title": "MLHub Dataset Extention",
   "description": "Radiant Earth Foundation MLHub Extension for STAC Catalogs.",
   "oneOf": [
@@ -47,7 +47,7 @@
         "stac_extensions": {
           "type": "array",
           "contains": {
-            "const": "https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json"
+            "const": "https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json"
           }
         }
       }
