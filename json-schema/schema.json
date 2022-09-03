@@ -56,7 +56,12 @@
       "$comment": "Please list all fields here so that we can force the existance of one of them in other parts of the schemas.",
       "allOf": [
         {"required": ["mlhub:tags"]},
-        {"required": ["mlhub:creator_contact"]}
+        {"required": ["mlhub:creator_contact"]},
+        {"required": ["mlhub:date_added"]},
+        {"required": ["mlhub:date_modified"]},
+        {"required": ["mlhub:science_keywords"]},
+        {"required": ["mlhub:processing_level"]},
+        {"required": ["mlhub:collection_progress"]}
       ]
     },
     "fields": {
@@ -71,19 +76,14 @@
           }
         },
         "mlhub:creator_contact": {
-          "type": "array",
-          "uniqueItems": true,
-          "minItems": 1,
-          "items": {
-              "$ref": "#/definitions/creator_contact"
-          }
+          "$ref": "#/definitions/creator_contact"
         },
         "mlhub:publications": {
           "type": "array",
           "uniqueItems": true,
           "minItems": 0,
           "items": {
-              "$ref": "#/definitions/external_resource"
+            "$ref": "#/definitions/external_resource"
           }
         },
         "mlhub:tools_apps": {
@@ -91,7 +91,7 @@
           "uniqueItems": true,
           "minItems": 0,
           "items": {
-              "$ref": "#/definitions/external_resource"
+            "$ref": "#/definitions/external_resource"
           }
         },
         "mlhub:tutorials": {
@@ -99,8 +99,39 @@
           "uniqueItems": true,
           "minItems": 0,
           "items": {
-              "$ref": "#/definitions/external_resource"
+            "$ref": "#/definitions/external_resource"
           }
+        },
+        "mlhub:science_keywords": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 1,
+          "items": {
+            "$ref": "#/definitions/science_keyword"
+          }
+        },
+        "mlhub:date_added": {
+          "title": "Dataset Added Datetime",
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(\\+00:00|Z)$"
+        },
+        "mlhub:date_modified": {
+          "title": "Dataset Modified Datetime",
+          "type": "string",
+          "format": "date-time",
+          "pattern": "(\\+00:00|Z)$"
+        },
+        "mlhub:processing_level": {
+          "title": "Processing Level",
+          "type": "number",
+          "const": 3
+        },
+        "mlhub:collection_progress": {
+          "title": "Collection Progress",
+          "type": "string",
+          "minLength": 1,
+          "const": "COMPLETE"
         }
       },
       "patternProperties": {
@@ -118,6 +149,40 @@
         },
         "creator": {
           "title": "Name and URL of affiliations",
+          "type": "string"
+        }
+      }
+    },
+    "science_keyword": {
+      "title": "GMCD Science Keyword",
+      "type": "object",
+      "properties": {
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "topic": {
+          "title": "Topic",
+          "type": "string"
+        },
+        "term": {
+          "title": "Term",
+          "type": "string"
+        },
+        "variable_level_1": {
+          "title": "Variable Level 1",
+          "type": "string"
+        },
+        "variable_level_2": {
+          "title": "Variable Level 2",
+          "type": "string"
+        },
+        "variable_level_3": {
+          "title": "Variable Level 3",
+          "type": "string"
+        },
+        "detailed_variable": {
+          "title": "Detailed Variable",
           "type": "string"
         }
       }
