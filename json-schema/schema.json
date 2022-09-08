@@ -60,6 +60,9 @@
         {"required": ["mlhub:date_added"]},
         {"required": ["mlhub:date_modified"]},
         {"required": ["mlhub:science_keywords"]},
+        {"required": ["mlhub:location_keywords"]},
+        {"required": ["mlhub:platform_keywords"]},
+        {"required": ["mlhub:instrument_keywords"]},
         {"required": ["mlhub:processing_level"]},
         {"required": ["mlhub:collection_progress"]}
       ]
@@ -105,9 +108,33 @@
         "mlhub:science_keywords": {
           "type": "array",
           "uniqueItems": true,
-          "maxItems": 1,
+          "minItems": 1,
           "items": {
             "$ref": "#/definitions/science_keyword"
+          }
+        },
+        "mlhub:location_keywords": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/location_keyword"
+          }
+        },
+        "mlhub:platform_keywords": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/platform_keyword"
+          }
+        },
+        "mlhub:instrument_keywords": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/instrument_keyword"
           }
         },
         "mlhub:date_added": {
@@ -154,7 +181,7 @@
       }
     },
     "science_keyword": {
-      "title": "GMCD Science Keyword",
+      "title": "GMCD Earth Science Keyword",
       "type": "object",
       "properties": {
         "category": {
@@ -183,6 +210,95 @@
         },
         "detailed_variable": {
           "title": "Detailed Variable",
+          "type": "string"
+        }
+      },
+      "required": ["category", "topic", "term"]
+    },
+    "location_keyword": {
+      "title": "GMCD Location Keyword",
+      "type": "object",
+      "properties": {
+        "location_category": {
+          "title": "Location Category",
+          "type": "string"
+        },
+        "location_type": {
+          "title": "Location Type",
+          "type": "string"
+        },
+        "location_subregion_1": {
+          "title": "Location Subregion 1",
+          "type": "string"
+        },
+        "location_subregion_2": {
+          "title": "Location Subregion 2",
+          "type": "string"
+        },
+        "location_subregion_3": {
+          "title": "Location Subregion 3",
+          "type": "string"
+        },
+        "detailed_location": {
+          "title": "Detailed Location",
+          "type": "string"
+        }
+      },
+      "required": ["location_category"]
+    },
+    "platform_keyword": {
+      "title": "GMCD Platform/Source Keyword",
+      "type": "object",
+      "properties": {
+        "basis": {
+          "title": "Basis",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "sub_category": {
+          "title": "Sub Category",
+          "type": "string"
+        },
+        "short_name": {
+          "title": "Short Name",
+          "type": "string"
+        },
+        "long_name": {
+          "title": "Long name",
+          "type": "string"
+        }
+      },
+      "required": ["short_name"]
+    },
+    "instrument_keyword": {
+      "title": "GMCD Instrument/Sensor Keyword",
+      "type": "object",
+      "properties": {
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "class": {
+          "title": "Class",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        },
+        "sub_type": {
+          "title": "Sub Type",
+          "type": "string"
+        },
+        "short_name": {
+          "title": "Short Name",
+          "type": "string"
+        },
+        "long_name": {
+          "title": "Long name",
           "type": "string"
         }
       }

@@ -14,6 +14,7 @@ This document explains the MLHub Extension to the [SpatioTemporal Asset Catalog]
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
+
 ## Catalog Fields
 
 For Catalogs, the fields are placed on the top level of the Catalog.
@@ -26,10 +27,14 @@ For Catalogs, the fields are placed on the top level of the Catalog.
 | mlhub:date_modified    | string                                           | **REQUIRED**. Datetime for the last time dataset was modified     |
 | mlhub:processing_level | number                                           | **REQUIRED**. Identifier indicating the level at which the data in the collection are processed |
 | mlhub:collection_progress | string                                        | **REQUIRED**. Describes the production status of the dataset      |
-| mlhub:science_keywords | \[[ScienceKeyword](#sciencekeyword-object)]      | **REQUIRED**. List of keywords chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
+| mlhub:science_keywords | \[[ScienceKeyword](#sciencekeyword-object)]      | **REQUIRED**. Allows relevant Earth science keywords to be associated with a dataset to better enable data search and discovery
+| mlhub:location_keywords | \[[LocationKeyword](#locationkeyword-object)]   | Contain keywords that characterize the study area/region where the data was collected
+| mlhub:platform_keywords | \[[PlatformKeyword](#platformkeyword-object)]   | **REQUIRED** Enables the specification of platforms used to collect the data available in the dataset
+| mlhub:instrument_keywords | \[[InstrumentKeyword](#instrumentkeyword-object)] | Enables the specification of instruments used to collect the data available in the dataset
 | mlhub:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
 | mlhub:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
 | mlhub:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
+
 
 ### CreatorContact Object
 
@@ -40,17 +45,22 @@ This object provides reference to the primary point of contact for the dataset a
 | contact     | string | **REQUIRED**. Email address(es) of the primary points of contact    |
 | creator     | string | **REQUIRED**. Name and URL of affiliated institutions (in markdown) |
 
+
 ### Dataset Tags
 
 Tags are a list of keywords added to the dataset's metadata to describe or categorize the catalog, combining one or more words, that improve the user experience by allowing them to filter all the datasets seen on Radiant MLHub catalog to a speicif subset of types, e.g. satellite constellation, machine learning use-case, or data provider.
+
 
 ### Dataset Added and Modified Dates
 
 In addition to the `datetime` properties required by the STAC specification for Collections and Items, such as `datetime`, `start_datetime` and `end_datetime` as well as the `interval` values of `extent`, we need to capture the date that the dataset was added to Radiant MLHub and the most recent date that a dataset was updated. Therefore, this extension will contain two additional fields, `date_added` and `date_modified`. These two fields will follow the same formatting convention as other datetime objects in the STAC specification. All times in STAC metadata should be in [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and be formatted according to [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).
 
+
 ### ScienceKeyword Object
 
-[GCMD Keywords](https://wiki.earthdata.nasa.gov/display/CMR/GCMD+Keyword+Access) are organized using a multi-level hierarchical structure. This hierarchical structure provides a framework by which concepts can be classified and related.
+The Science Keywords element allows relevant Earth science keywords to be associated with a dataset to better enable data search and discovery. The Science Keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://wiki.earthdata.nasa.gov/display/gcmdkey/Keyword+Management+Service+Application+Program+Interface). A list of valid Science Keywords can be found [here](https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords?format=csv).
+
+Earth Science Keywords have six-level hierarchical keyword structure with the option for a seventh uncontrolled field. This hierarchical structure provides a framework by which concepts can be classified and related. Category and Topic levels define how the keywords are organized and the associated Earth science discipline within the hierarchy. The Term and Variables levels define the subject area, measured variables/parameters, and the hierarchical-type relationship for the subject area.
 
 | Field Name   | Type   | Description |
 | ------------ | ------ | ----------- |
@@ -61,6 +71,58 @@ In addition to the `datetime` properties required by the STAC specification for 
 | variable_level_2 | string | Define subject areas and parameters |
 | variable_level_2 | string | Define subject areas and parameters |
 | detailed_variable | string | Uncontrolled values that can be added by users to more specifically describe data |
+
+NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
+
+
+### LocationKeyword Object
+
+The Location Keywords element contains keywords that characterize the study area/region where data was collected. This allows users to narrow their searches to areas that suit their geographic interest. The Location Keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://wiki.earthdata.nasa.gov/display/gcmdkey/Keyword+Management+Service+Application+Program+Interface). A list of valid Location Keywords can be found [here](https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/locations?format=csv).
+
+Location Keywords have a five-level hierarchical keyword structure with the option for a sixth uncontrolled field and define the name of a place on Earth, a location within Earth, a vertical location, or a location outside of the Earth.. This hierarchical structure provides a framework by which concepts can be classified and related. 
+
+| Field Name   | Type   | Description |
+| ------------ | ------ | ----------- |
+| location_category     | string      | **REQUIRED**. Continent, geographic region, ocean, solid earth, space and vertical location |
+| location_type         | string      | Slightly more granular category of the location, e.g. CONTINENT > NORTH AMERICA |
+| location_subregion_1  | string      | Next level of granularity, e.g. NORTH AMERICA > CENTRAL AMERICA |
+| location_subregion_2  | string      | Next level of granularity, e.g. CENTRAL AMERICA > BELIZE |
+| location_subregion_3  | string      | Most granular level of location e.g. a city or county within a country |
+| detailed_location     | string      | Uncontrolled values that can be added by users to more specifically describe location |
+
+NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
+
+
+### PlatformKeyword Object
+
+The platform elements enable the specification of platforms used to collect the data available in the dataset. Platforms provided in CMR metadata must be chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://wiki.earthdata.nasa.gov/display/gcmdkey/Keyword+Management+Service+Application+Program+Interface). A list of valid platform keywords can be found [here](https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/platforms?format=csv).
+
+| Field Name   | Type   | Description |
+| ------------ | ------ | ----------- |
+| basis        | string |  |
+| category     | string |  |
+| sub_category | string |  |
+| short_name   | string |  |
+| long_name    | string |  |
+
+NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
+
+
+### InstrumentKeyword Object
+
+The instrument elements enable the specification of instruments used to collect the data available in the dataset. Instruments provided in CMR metadata must be chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://wiki.earthdata.nasa.gov/display/gcmdkey/Keyword+Management+Service+Application+Program+Interface). A list of valid instrument keywords can be found [here](https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/instruments/?format=csv).
+
+| Field Name   | Type   | Description |
+| ------------ | ------ | ----------- |
+| class        | string |  |
+| category     | string |  |
+| type         | string |  |
+| sub_type     | string |  |
+| short_name   | string |  |
+| long_name    | string |  |
+
+NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
+
 
 ### ExternalResource Object
 
@@ -73,6 +135,7 @@ This is a more abstract object describes an external resource that is somehow re
 | author_url   | string | Webpage or social media account of the author(s)                       |
 | author_name  | string | Name(s) of the author(s) who created the external resource referrenced |
 
+
 ## Contributing
 
 All contributions are subject to the
@@ -80,6 +143,7 @@ All contributions are subject to the
 For contributions, please follow the
 [STAC specification contributing guide](https://github.com/radiantearth/stac-spec/blob/master/CONTRIBUTING.md) Instructions
 for running tests are copied here for convenience.
+
 
 ### Running tests
 

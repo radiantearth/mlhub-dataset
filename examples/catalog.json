@@ -26,12 +26,12 @@
         }
     ],
     "type": "Catalog",
-    "stac_extensions": ["https://stac-extensions.github.io/mlhub-dataset/v1.0.0/schema.json"],
+    "stac_extensions": ["https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json"],
     "mlhub:tags": ["land cover", "segmentation", "sentinel-2", "sentinel-1", "landsat 8"],
-    "mlhub:creator_contact": [{
+    "mlhub:creator_contact": {
         "contact": "ml@radiant.earth", 
         "creator": "[Radiant Earth Foundation](https://radiant.earth/)"
-    }],
+    },
     "mlhub:publications": [
         {
             "url": "https://arxiv.org/abs/2012.03111", 
@@ -48,5 +48,40 @@
             "author_name": "Kevin Booth"
             }
         ],
-    "mlhub:tools_apps": []
+    "mlhub:processing_level": 3,
+    "mlhub:collection_progress": "COMPLETE",
+    "mlhub:date_added": "2020-07-28T00:00:00Z",
+    "mlhub:date_modified": "2022-04-04T00:00:00Z",
+    "mlhub:science_keywords": [
+        {
+            "category": "HUMAN DIMENSIONS",
+            "topic": "ENVIRONMENTAL GOVERNANCE/MANAGEMENT",
+            "term": "LAND MANAGEMENT",
+            "variable_level_1": "LAND USE/LAND COVER CLASSIFICATION"
+        }
+    ],
+    "mlhub:platform_keywords": [
+        {
+            "basis": "Space-based Platforms",
+            "category": "Earth Observation Satellites",
+            "sub_category": "Sentinel-1"
+        },
+        {
+            "basis": "Space-based Platforms",
+            "category": "Earth Observation Satellites",
+            "sub_category": "Sentinel-2"
+        },
+        {
+            "basis": "Space-based Platforms",
+            "category": "Earth Observation Satellites",
+            "sub_category": "Landsat",
+            "short_name": "LANDSAT-8"
+        }
+    ],
+    "mlhub:location_keywords": [
+        {
+            "location_category": "CONTINENT",
+            "location_type": "AFRICA"
+        }
+    ]
 }
