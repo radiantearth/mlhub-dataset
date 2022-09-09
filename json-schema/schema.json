@@ -57,11 +57,8 @@
       "allOf": [
         {"required": ["mlhub:tags"]},
         {"required": ["mlhub:creator_contact"]},
-        {"required": ["mlhub:date_added"]},
-        {"required": ["mlhub:date_modified"]},
         {"required": ["mlhub:science_keywords"]},
         {"required": ["mlhub:location_keywords"]},
-        {"required": ["mlhub:processing_level"]},
         {"required": ["mlhub:collection_progress"]}
       ]
     },
@@ -118,23 +115,6 @@
           "items": {
             "$ref": "#/definitions/location_keyword"
           }
-        },
-        "mlhub:date_added": {
-          "title": "Dataset Added Datetime",
-          "type": "string",
-          "format": "date-time",
-          "pattern": "(\\+00:00|Z)$"
-        },
-        "mlhub:date_modified": {
-          "title": "Dataset Modified Datetime",
-          "type": "string",
-          "format": "date-time",
-          "pattern": "(\\+00:00|Z)$"
-        },
-        "mlhub:processing_level": {
-          "title": "Processing Level",
-          "type": "number",
-          "const": 3
         },
         "mlhub:collection_progress": {
           "title": "Collection Progress",

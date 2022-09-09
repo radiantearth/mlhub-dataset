@@ -26,8 +26,10 @@
         }
     ],
     "type": "Catalog",
-    "stac_extensions": ["https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json"],
-    "mlhub:tags": ["land cover", "segmentation", "sentinel-2", "sentinel-1", "landsat 8"],
+    "stac_extensions": [
+        "https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json",
+        "https://stac-extensions.github.io/processing/v1.0.0/schema.json"
+    ],
     "mlhub:creator_contact": {
         "contact": "ml@radiant.earth", 
         "creator": "[Radiant Earth Foundation](https://radiant.earth/)"
@@ -48,10 +50,17 @@
             "author_name": "Kevin Booth"
             }
         ],
-    "mlhub:processing_level": 3,
+    "processing:level": "3",
     "mlhub:collection_progress": "COMPLETE",
-    "mlhub:date_added": "2020-07-28T00:00:00Z",
-    "mlhub:date_modified": "2022-04-04T00:00:00Z",
+    "keywords": [
+        "land cover", 
+        "segmentation", 
+        "sentinel-2", 
+        "sentinel-1", 
+        "landsat 8"
+    ],
+    "created": "2020-07-28T00:00:00Z",
+    "updated": "2022-04-04T00:00:00Z",
     "mlhub:science_keywords": [
         {
             "category": "HUMAN DIMENSIONS",

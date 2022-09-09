@@ -22,10 +22,6 @@ For Catalogs, the fields are placed on the top level of the Catalog.
 | Field Name             | Type                                             | Description                                                       |
 | ---------------------- | ------------------------------------------------ | ----------------------------------------------------------------- |
 | mlhub:creator_contact  | [CreatorContact](#creatorcontact-object)         | **REQUIRED**. The primary creator and point of contact            |
-| mlhub:tags             | \[string]                                        | **REQUIRED**. List of keywords to populate the webpage tag filter |
-| mlhub:date_added       | string                                           | **REQUIRED**. Datetime for when the dataset was added to MLHub    |
-| mlhub:date_modified    | string                                           | **REQUIRED**. Datetime for the last time dataset was modified     |
-| mlhub:processing_level | number                                           | **REQUIRED**. Identifier indicating the level at which the data in the collection are processed ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Processing+Level)) |
 | mlhub:collection_progress | string                                        | **REQUIRED**. Describes the production status of the dataset ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Collection+Progress))      |
 | mlhub:science_keywords | \[[ScienceKeyword](#sciencekeyword-object)]      | **REQUIRED**. Allows relevant Earth science keywords to be associated with a dataset to better enable data search and discovery ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Science+Keywords)) |
 | mlhub:location_keywords | \[[LocationKeyword](#locationkeyword-object)]   | Contain keywords that characterize the study area/region where the data was collected ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Location+Keywords)) |
@@ -44,14 +40,14 @@ This object provides reference to the primary point of contact for the dataset a
 | creator     | string | **REQUIRED**. Name and URL of affiliated institutions (in markdown) |
 
 
-### Dataset Tags
+### Dataset Tags/Keywords
 
 Tags are a list of keywords added to the dataset's metadata to describe or categorize the catalog, combining one or more words, that improve the user experience by allowing them to filter all the datasets seen on Radiant MLHub catalog to a speicif subset of types, e.g. satellite constellation, machine learning use-case, or data provider.
 
 
-### Dataset Added and Modified Dates
+### Dataset Created and Updated Dates
 
-In addition to the `datetime` properties required by the STAC specification for Collections and Items, such as `datetime`, `start_datetime` and `end_datetime` as well as the `interval` values of `extent`, we need to capture the date that the dataset was added to Radiant MLHub and the most recent date that a dataset was updated. Therefore, this extension will contain two additional fields, `date_added` and `date_modified`. These two fields will follow the same formatting convention as other datetime objects in the STAC specification. All times in STAC metadata should be in [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and be formatted according to [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).
+In addition to the `datetime` properties required by the STAC specification for Collections and Items, such as `datetime`, `start_datetime` and `end_datetime` as well as the `interval` values of `extent`, we need to capture the date that the dataset was added to Radiant MLHub and the most recent date that a dataset was updated. Therefore, we will use two additional fields as part of the [STAC Common Metadata](https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md), `created` and `updated`. These two fields will follow the same formatting convention as other datetime objects in the STAC specification. All times in STAC metadata should be in [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and be formatted according to [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).
 
 
 ### ScienceKeyword Object
