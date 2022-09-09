@@ -60,24 +60,6 @@
             "variable_level_1": "LAND USE/LAND COVER CLASSIFICATION"
         }
     ],
-    "mlhub:platform_keywords": [
-        {
-            "basis": "Space-based Platforms",
-            "category": "Earth Observation Satellites",
-            "sub_category": "Sentinel-1"
-        },
-        {
-            "basis": "Space-based Platforms",
-            "category": "Earth Observation Satellites",
-            "sub_category": "Sentinel-2"
-        },
-        {
-            "basis": "Space-based Platforms",
-            "category": "Earth Observation Satellites",
-            "sub_category": "Landsat",
-            "short_name": "LANDSAT-8"
-        }
-    ],
     "mlhub:location_keywords": [
         {
             "location_category": "CONTINENT",

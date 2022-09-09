@@ -61,8 +61,6 @@
         {"required": ["mlhub:date_modified"]},
         {"required": ["mlhub:science_keywords"]},
         {"required": ["mlhub:location_keywords"]},
-        {"required": ["mlhub:platform_keywords"]},
-        {"required": ["mlhub:instrument_keywords"]},
         {"required": ["mlhub:processing_level"]},
         {"required": ["mlhub:collection_progress"]}
       ]
@@ -121,22 +119,6 @@
             "$ref": "#/definitions/location_keyword"
           }
         },
-        "mlhub:platform_keywords": {
-          "type": "array",
-          "uniqueItems": true,
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/platform_keyword"
-          }
-        },
-        "mlhub:instrument_keywords": {
-          "type": "array",
-          "uniqueItems": true,
-          "minItems": 0,
-          "items": {
-            "$ref": "#/definitions/instrument_keyword"
-          }
-        },
         "mlhub:date_added": {
           "title": "Dataset Added Datetime",
           "type": "string",
@@ -178,7 +160,8 @@
           "title": "Name and URL of affiliations",
           "type": "string"
         }
-      }
+      },
+      "required": ["contact", "creator"]
     },
     "science_keyword": {
       "title": "GMCD Earth Science Keyword",
@@ -245,63 +228,6 @@
         }
       },
       "required": ["location_category"]
-    },
-    "platform_keyword": {
-      "title": "GMCD Platform/Source Keyword",
-      "type": "object",
-      "properties": {
-        "basis": {
-          "title": "Basis",
-          "type": "string"
-        },
-        "category": {
-          "title": "Category",
-          "type": "string"
-        },
-        "sub_category": {
-          "title": "Sub Category",
-          "type": "string"
-        },
-        "short_name": {
-          "title": "Short Name",
-          "type": "string"
-        },
-        "long_name": {
-          "title": "Long name",
-          "type": "string"
-        }
-      },
-      "required": ["short_name"]
-    },
-    "instrument_keyword": {
-      "title": "GMCD Instrument/Sensor Keyword",
-      "type": "object",
-      "properties": {
-        "category": {
-          "title": "Category",
-          "type": "string"
-        },
-        "class": {
-          "title": "Class",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "type": "string"
-        },
-        "sub_type": {
-          "title": "Sub Type",
-          "type": "string"
-        },
-        "short_name": {
-          "title": "Short Name",
-          "type": "string"
-        },
-        "long_name": {
-          "title": "Long name",
-          "type": "string"
-        }
-      }
     },
     "external_resource": {
       "title": "External Resource",

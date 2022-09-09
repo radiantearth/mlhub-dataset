@@ -25,12 +25,10 @@ For Catalogs, the fields are placed on the top level of the Catalog.
 | mlhub:tags             | \[string]                                        | **REQUIRED**. List of keywords to populate the webpage tag filter |
 | mlhub:date_added       | string                                           | **REQUIRED**. Datetime for when the dataset was added to MLHub    |
 | mlhub:date_modified    | string                                           | **REQUIRED**. Datetime for the last time dataset was modified     |
-| mlhub:processing_level | number                                           | **REQUIRED**. Identifier indicating the level at which the data in the collection are processed |
-| mlhub:collection_progress | string                                        | **REQUIRED**. Describes the production status of the dataset      |
-| mlhub:science_keywords | \[[ScienceKeyword](#sciencekeyword-object)]      | **REQUIRED**. Allows relevant Earth science keywords to be associated with a dataset to better enable data search and discovery
-| mlhub:location_keywords | \[[LocationKeyword](#locationkeyword-object)]   | Contain keywords that characterize the study area/region where the data was collected
-| mlhub:platform_keywords | \[[PlatformKeyword](#platformkeyword-object)]   | **REQUIRED** Enables the specification of platforms used to collect the data available in the dataset
-| mlhub:instrument_keywords | \[[InstrumentKeyword](#instrumentkeyword-object)] | Enables the specification of instruments used to collect the data available in the dataset
+| mlhub:processing_level | number                                           | **REQUIRED**. Identifier indicating the level at which the data in the collection are processed ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Processing+Level)) |
+| mlhub:collection_progress | string                                        | **REQUIRED**. Describes the production status of the dataset ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Collection+Progress))      |
+| mlhub:science_keywords | \[[ScienceKeyword](#sciencekeyword-object)]      | **REQUIRED**. Allows relevant Earth science keywords to be associated with a dataset to better enable data search and discovery ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Science+Keywords)) |
+| mlhub:location_keywords | \[[LocationKeyword](#locationkeyword-object)]   | Contain keywords that characterize the study area/region where the data was collected ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Location+Keywords)) |
 | mlhub:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
 | mlhub:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
 | mlhub:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
@@ -89,37 +87,6 @@ Location Keywords have a five-level hierarchical keyword structure with the opti
 | location_subregion_2  | string      | Next level of granularity, e.g. CENTRAL AMERICA > BELIZE |
 | location_subregion_3  | string      | Most granular level of location e.g. a city or county within a country |
 | detailed_location     | string      | Uncontrolled values that can be added by users to more specifically describe location |
-
-NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
-
-
-### PlatformKeyword Object
-
-The platform elements enable the specification of platforms used to collect the data available in the dataset. Platforms provided in CMR metadata must be chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://wiki.earthdata.nasa.gov/display/gcmdkey/Keyword+Management+Service+Application+Program+Interface). A list of valid platform keywords can be found [here](https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/platforms?format=csv).
-
-| Field Name   | Type   | Description |
-| ------------ | ------ | ----------- |
-| basis        | string |  |
-| category     | string |  |
-| sub_category | string |  |
-| short_name   | string |  |
-| long_name    | string |  |
-
-NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
-
-
-### InstrumentKeyword Object
-
-The instrument elements enable the specification of instruments used to collect the data available in the dataset. Instruments provided in CMR metadata must be chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://wiki.earthdata.nasa.gov/display/gcmdkey/Keyword+Management+Service+Application+Program+Interface). A list of valid instrument keywords can be found [here](https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/instruments/?format=csv).
-
-| Field Name   | Type   | Description |
-| ------------ | ------ | ----------- |
-| class        | string |  |
-| category     | string |  |
-| type         | string |  |
-| sub_type     | string |  |
-| short_name   | string |  |
-| long_name    | string |  |
 
 NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
 
