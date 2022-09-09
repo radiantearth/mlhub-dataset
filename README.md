@@ -26,12 +26,9 @@ For Catalogs, the fields are placed on the top level of the Catalog.
 | Field Name             | Type                                             | Description                                                       |
 | ---------------------- | ------------------------------------------------ | ----------------------------------------------------------------- |
 | mlhub:creator_contact  | [CreatorContact](#creatorcontact-object)         | **REQUIRED**. The primary creator and point of contact            |
-| mlhub:collection_progress | string                                        | **REQUIRED**. Describes the production status of the dataset 
-([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Collection+Progress))      |
-| mlhub:science_keywords | \[[ScienceKeyword](#sciencekeyword-object)]      | **REQUIRED**. Allows relevant Earth science keywords to be associated
-with a dataset to better enable data search and discovery ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Science+Keywords)) |
-| mlhub:location_keywords | \[[LocationKeyword](#locationkeyword-object)]   | Contain keywords that characterize the study area/region where the
-data was collected ([GMCD Keyword Spec](https://wiki.earthdata.nasa.gov/display/CMR/Location+Keywords)) |
+| mlhub:collection_progress | string                                        | **REQUIRED**. Describes the production status of the dataset      |
+| mlhub:science_keywords | \[[ScienceKeyword](#sciencekeyword-object)]      | **REQUIRED**. Allows for better data search and discovery         |
+| mlhub:location_keywords | \[[LocationKeyword](#locationkeyword-object)]   | The study area/region where the data was collected                |
 | mlhub:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
 | mlhub:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
 | mlhub:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
@@ -63,6 +60,10 @@ fields will follow the same formatting convention as other datetime objects in t
 [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and be formatted according to 
 [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).
 
+### Collection Progress
+
+[GMCD Collection Progress Specification](https://wiki.earthdata.nasa.gov/display/CMR/Collection+Progress)
+
 ### ScienceKeyword Object
 
 The Science Keywords element allows relevant Earth science keywords to be associated with a dataset to better enable data search and discovery. The
@@ -74,6 +75,8 @@ Earth Science Keywords have six-level hierarchical keyword structure with the op
 provides a framework by which concepts can be classified and related. Category and Topic levels define how the keywords are organized and the
 associated Earth science discipline within the hierarchy. The Term and Variables levels define the subject area, measured variables/parameters, and
 the hierarchical-type relationship for the subject area.
+
+[GMCD Earth Science Keyword Specification](https://wiki.earthdata.nasa.gov/display/CMR/Science+Keywords)
 
 | Field Name   | Type   | Description |
 | ------------ | ------ | ----------- |
@@ -98,6 +101,8 @@ of valid Location Keywords can be found [here](https://gcmd.earthdata.nasa.gov/k
 Location Keywords have a five-level hierarchical keyword structure with the option for a sixth uncontrolled field and define the name of a place
 on Earth, a location within Earth, a vertical location, or a location outside of the Earth.. This hierarchical structure provides a framework by
 which concepts can be classified and related. 
+
+[GMCD Location Keyword Specification](https://wiki.earthdata.nasa.gov/display/CMR/Location+Keywords)
 
 | Field Name   | Type   | Description |
 | ------------ | ------ | ----------- |
