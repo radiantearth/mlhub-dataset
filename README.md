@@ -14,7 +14,6 @@ This document explains the MLHub Extension to the [SpatioTemporal Asset Catalog]
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
-
 ## Catalog Fields
 
 For Catalogs, the fields are placed on the top level of the Catalog.
@@ -29,7 +28,6 @@ For Catalogs, the fields are placed on the top level of the Catalog.
 | mlhub:tools_apps       | \[[ExternalResource](#externalresource-object)]  | List of the tools and applications used in dataset generation     |
 | mlhub:tutorials        | \[[ExternalResource](#externalresource-object)]  | List of tutorials such as jupyter notebooks or github repos       |
 
-
 ### CreatorContact Object
 
 This object provides reference to the primary point of contact for the dataset and their organizational affiliation, e.g. their email and name of research institution. Each value in both the `contact` and `creator` fields are strings, but both can also be single comma delineated strings to add more contact and creator details.
@@ -39,16 +37,13 @@ This object provides reference to the primary point of contact for the dataset a
 | contact     | string | **REQUIRED**. Email address(es) of the primary points of contact    |
 | creator     | string | **REQUIRED**. Name and URL of affiliated institutions (in markdown) |
 
-
 ### Dataset Tags/Keywords
 
 Tags are a list of keywords added to the dataset's metadata to describe or categorize the catalog, combining one or more words, that improve the user experience by allowing them to filter all the datasets seen on Radiant MLHub catalog to a speicif subset of types, e.g. satellite constellation, machine learning use-case, or data provider.
 
-
 ### Dataset Created and Updated Dates
 
 In addition to the `datetime` properties required by the STAC specification for Collections and Items, such as `datetime`, `start_datetime` and `end_datetime` as well as the `interval` values of `extent`, we need to capture the date that the dataset was added to Radiant MLHub and the most recent date that a dataset was updated. Therefore, we will use two additional fields as part of the [STAC Common Metadata](https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md), `created` and `updated`. These two fields will follow the same formatting convention as other datetime objects in the STAC specification. All times in STAC metadata should be in [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and be formatted according to [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).
-
 
 ### ScienceKeyword Object
 
@@ -68,7 +63,6 @@ Earth Science Keywords have six-level hierarchical keyword structure with the op
 
 NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
 
-
 ### LocationKeyword Object
 
 The Location Keywords element contains keywords that characterize the study area/region where data was collected. This allows users to narrow their searches to areas that suit their geographic interest. The Location Keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://wiki.earthdata.nasa.gov/display/gcmdkey/Keyword+Management+Service+Application+Program+Interface). A list of valid Location Keywords can be found [here](https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/locations?format=csv).
@@ -86,7 +80,6 @@ Location Keywords have a five-level hierarchical keyword structure with the opti
 
 NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
 
-
 ### ExternalResource Object
 
 This is a more abstract object describes an external resource that is somehow relevant to the dataset being published. This object is used by the `publications`, `tutorials`, and `tools and applications` fields, as they all share the same key/value pairs of nested attributes.
@@ -98,7 +91,6 @@ This is a more abstract object describes an external resource that is somehow re
 | author_url   | string | Webpage or social media account of the author(s)                       |
 | author_name  | string | Name(s) of the author(s) who created the external resource referrenced |
 
-
 ## Contributing
 
 All contributions are subject to the
@@ -106,7 +98,6 @@ All contributions are subject to the
 For contributions, please follow the
 [STAC specification contributing guide](https://github.com/radiantearth/stac-spec/blob/master/CONTRIBUTING.md) Instructions
 for running tests are copied here for convenience.
-
 
 ### Running tests
 
