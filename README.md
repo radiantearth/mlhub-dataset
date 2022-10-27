@@ -62,6 +62,8 @@ fields will follow the same formatting convention as other datetime objects in t
 
 ### Collection Progress
 
+Describes the production status of a dataset using five possible categories: `PLANNED`, `ACTIVE`, `COMPLETE`, `DEPRECATED` and `NOT APPLICABLE`.
+
 [GMCD Collection Progress Specification](https://wiki.earthdata.nasa.gov/display/CMR/Collection+Progress)
 
 ### ScienceKeyword Object
@@ -74,19 +76,15 @@ of valid Science Keywords can be found [here](https://gcmd.earthdata.nasa.gov/km
 Earth Science Keywords have six-level hierarchical keyword structure with the option for a seventh uncontrolled field. This hierarchical structure
 provides a framework by which concepts can be classified and related. Category and Topic levels define how the keywords are organized and the
 associated Earth science discipline within the hierarchy. The Term and Variables levels define the subject area, measured variables/parameters, and
-the hierarchical-type relationship for the subject area.
+the hierarchical-type relationship for the subject area. Using the UUID, we are able to query and reconstruct the six-level hierarchy by choosing 
+to store only the lowest level `name` and `uuid` relationship from within the GCMD Earth Science Keyword specification.
 
 [GMCD Earth Science Keyword Specification](https://wiki.earthdata.nasa.gov/display/CMR/Science+Keywords)
 
 | Field Name   | Type   | Description |
 | ------------ | ------ | ----------- |
-| category     | string | **REQUIRED**. Defines disciplines and high level concepts |
-| topic        | string | **REQUIRED**. Defines disciplines and high level concepts |
-| term         | string | **REQUIRED**. Define subject areas and parameters |
-| variable_level_1 | string | Define subject areas and parameters |
-| variable_level_2 | string | Define subject areas and parameters |
-| variable_level_2 | string | Define subject areas and parameters |
-| detailed_variable | string | Uncontrolled values that can be added by users to more specifically describe data |
+| name     | string | **REQUIRED**. The human readable lowest level Earth Science Keyword chosen per specification |
+| uuid     | string | **REQUIRED**. UUID of the name property for lowest level of Earth Science Keyword chosen |
 
 NOTE: The complete list of keywords are chosen from a controlled keyword hierarchy maintained in the 
 [Keyword Management System (KMS)](https://earthdata.nasa.gov/earth-observation-data/find-data/idn/gcmd-keywords)
@@ -103,6 +101,11 @@ on Earth, a location within Earth, a vertical location, or a location outside of
 which concepts can be classified and related. 
 
 [GMCD Location Keyword Specification](https://wiki.earthdata.nasa.gov/display/CMR/Location+Keywords)
+
+For example, with LandCoverNet Africa v1.0 (`ref_landcovernet_af_v1`), the most granular geographic scope reasonable to capture is the entire 
+contient of Africa, as the dataset is spread sparsely across the continent. However there are some datasets which are specific to a state or 
+certain region within a country. Under the circumstances, it is appropriate to choose a more granular level of location keywords per the 
+specification.
 
 | Field Name   | Type   | Description |
 | ------------ | ------ | ----------- |

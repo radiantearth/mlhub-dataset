@@ -147,36 +147,16 @@
       "title": "GMCD Earth Science Keyword",
       "type": "object",
       "properties": {
-        "category": {
-          "title": "Category",
+        "name": {
+          "title": "Name",
           "type": "string"
         },
-        "topic": {
-          "title": "Topic",
-          "type": "string"
-        },
-        "term": {
-          "title": "Term",
-          "type": "string"
-        },
-        "variable_level_1": {
-          "title": "Variable Level 1",
-          "type": "string"
-        },
-        "variable_level_2": {
-          "title": "Variable Level 2",
-          "type": "string"
-        },
-        "variable_level_3": {
-          "title": "Variable Level 3",
-          "type": "string"
-        },
-        "detailed_variable": {
-          "title": "Detailed Variable",
+        "uuid": {
+          "title": "UUID",
           "type": "string"
         }
       },
-      "required": ["category", "topic", "term"]
+      "required": ["name", "uuid"]
     },
     "location_keyword": {
       "title": "GMCD Location Keyword",
