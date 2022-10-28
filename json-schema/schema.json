@@ -58,8 +58,7 @@
         {"required": ["mlhub:tags"]},
         {"required": ["mlhub:creator_contact"]},
         {"required": ["mlhub:science_keywords"]},
-        {"required": ["mlhub:location_keywords"]},
-        {"required": ["mlhub:collection_progress"]}
+        {"required": ["mlhub:location_keywords"]}
       ]
     },
     "fields": {
@@ -115,12 +114,6 @@
           "items": {
             "$ref": "#/definitions/location_keyword"
           }
-        },
-        "mlhub:collection_progress": {
-          "title": "Collection Progress",
-          "type": "string",
-          "minLength": 1,
-          "const": "COMPLETE"
         }
       },
       "patternProperties": {

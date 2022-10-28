@@ -27,8 +27,7 @@
     ],
     "type": "Catalog",
     "stac_extensions": [
-        "https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json",
-        "https://stac-extensions.github.io/processing/v1.0.0/schema.json"
+        "https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json"
     ],
     "mlhub:creator_contact": {
         "contact": "ml@radiant.earth", 
@@ -50,8 +49,6 @@
             "author_name": "Kevin Booth"
             }
         ],
-    "processing:level": "3",
-    "mlhub:collection_progress": "COMPLETE",
     "keywords": [
         "land cover", 
         "segmentation", 

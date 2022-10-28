@@ -60,12 +60,6 @@ fields will follow the same formatting convention as other datetime objects in t
 [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) and be formatted according to 
 [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).
 
-### Collection Progress
-
-Describes the production status of a dataset using five possible categories: `PLANNED`, `ACTIVE`, `COMPLETE`, `DEPRECATED` and `NOT APPLICABLE`.
-
-[GMCD Collection Progress Specification](https://wiki.earthdata.nasa.gov/display/CMR/Collection+Progress)
-
 ### ScienceKeyword Object
 
 The Science Keywords element allows relevant Earth science keywords to be associated with a dataset to better enable data search and discovery. The
