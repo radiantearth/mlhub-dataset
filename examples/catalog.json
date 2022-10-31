@@ -10,24 +10,25 @@
         },
         {
             "rel": "child",
-            "href": "https://radiantmlhub.blob.core.windows.net/stac/landcovernet-af-v1/landcovernet_af_v1_source_sentinel_2/collection.json"
+            "href": "https://radiantmlhub.blob.core.windows.net/stac/landcovernet-af-v1/ref_landcovernet_af_v1_source_sentinel_2/collection.json"
         },
         {
             "rel": "child",
-            "href": "https://radiantmlhub.blob.core.windows.net/stac/landcovernet-af-v1/landcovernet_af_v1_source_sentinel_1/collection.json"
+            "href": "https://radiantmlhub.blob.core.windows.net/stac/landcovernet-af-v1/ref_landcovernet_af_v1_source_sentinel_1/collection.json"
         },
         {
             "rel": "child",
-            "href": "https://radiantmlhub.blob.core.windows.net/stac/landcovernet-af-v1/landcovernet_af_v1_source_landsat_8/collection.json"
+            "href": "https://radiantmlhub.blob.core.windows.net/stac/landcovernet-af-v1/ref_landcovernet_af_v1_source_landsat_8/collection.json"
         },
         {
             "rel": "child",
-            "href": "https://radiantmlhub.blob.core.windows.net/stac/landcovernet-af-v1/landcovernet_af_v1_labels/collection.json"
+            "href": "https://radiantmlhub.blob.core.windows.net/stac/landcovernet-af-v1/ref_landcovernet_af_v1_labels/collection.json"
         }
     ],
     "type": "Catalog",
-    "stac_extensions": ["https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json"],
-    "mlhub:tags": ["land cover", "segmentation", "sentinel-2", "sentinel-1", "landsat 8"],
+    "stac_extensions": [
+        "https://raw.githubusercontent.com/radiantearth/mlhub-dataset/main/json-schema/schema.json"
+    ],
     "mlhub:creator_contact": {
         "contact": "ml@radiant.earth", 
         "creator": "[Radiant Earth Foundation](https://radiant.earth/)"
@@ -48,16 +49,39 @@
             "author_name": "Kevin Booth"
             }
         ],
-    "mlhub:processing_level": 3,
-    "mlhub:collection_progress": "COMPLETE",
-    "mlhub:date_added": "2020-07-28T00:00:00Z",
-    "mlhub:date_modified": "2022-04-04T00:00:00Z",
+    "keywords": [
+        "land cover", 
+        "segmentation", 
+        "sentinel-2", 
+        "sentinel-1", 
+        "landsat 8"
+    ],
+    "created": "2020-07-28T00:00:00Z",
+    "updated": "2022-04-04T00:00:00Z",
     "mlhub:science_keywords": [
         {
-            "category": "HUMAN DIMENSIONS",
-            "topic": "ENVIRONMENTAL GOVERNANCE/MANAGEMENT",
-            "term": "LAND MANAGEMENT",
-            "variable_level_1": "LAND USE/LAND COVER CLASSIFICATION"
+            "name": "RASTER LABELS",
+            "uuid": "381a3ad7-64e9-464e-b5aa-c9ce0520546c"
+        },
+        {
+            "name": "RASTER SOURCE",
+            "uuid": "83eb2a9c-5f56-4512-94c1-acd084a5bf9d"
+        },
+        {
+            "name": "CLASSIFICATION",
+            "uuid": "ca240508-9cd7-400e-9420-ad96f72195bd"
+        },
+        {
+            "name": "SUPERVISED",
+            "uuid": "fdd890fa-377a-46ce-8fdc-2d7d16a461b7"
+        },
+        {
+            "name": "SEGMENTATION",
+            "uuid": "46b21df4-0467-48eb-b442-709b584ad816"
+        },
+        {
+            "name": "LAND USE/LAND COVER CLASSIFICATION",
+            "uuid": "75c312bc-79f9-4d74-a7c0-3c67c019196c"
         }
     ],
     "mlhub:location_keywords": [
