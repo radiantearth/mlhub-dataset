@@ -55,7 +55,6 @@
     "required_fields": {
       "$comment": "Please list all fields here so that we can force the existance of one of them in other parts of the schemas.",
       "allOf": [
-        {"required": ["mlhub:tags"]},
         {"required": ["mlhub:creator_contact"]},
         {"required": ["mlhub:science_keywords"]},
         {"required": ["mlhub:location_keywords"]}
@@ -65,13 +64,6 @@
       "$comment": "Add your new fields here. Don't require them here, do that above in the corresponding schema.",
       "type": "object",
       "properties": {
-        "mlhub:tags": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "type": "string"
-          }
-        },
         "mlhub:creator_contact": {
           "$ref": "#/definitions/creator_contact"
         },
