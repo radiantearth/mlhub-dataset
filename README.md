@@ -26,7 +26,6 @@ For Catalogs, the fields are placed on the top level of the Catalog.
 | Field Name             | Type                                             | Description                                                       |
 | ---------------------- | ------------------------------------------------ | ----------------------------------------------------------------- |
 | mlhub:creator_contact  | [CreatorContact](#creatorcontact-object)         | **REQUIRED**. The primary creator and point of contact            |
-| mlhub:collection_progress | string                                        | **REQUIRED**. Describes the production status of the dataset      |
 | mlhub:science_keywords | \[[ScienceKeyword](#sciencekeyword-object)]      | **REQUIRED**. Allows for better data search and discovery         |
 | mlhub:location_keywords | \[[LocationKeyword](#locationkeyword-object)]   | The study area/region where the data was collected                |
 | mlhub:publications     | \[[ExternalResource](#externalresource-object)]  | List of the publications associated with the dataset              |
@@ -43,12 +42,6 @@ add more contact and creator details.
 | ----------- | ------ | ------------------------------------------------------------------- |
 | contact     | string | **REQUIRED**. Email address(es) of the primary points of contact    |
 | creator     | string | **REQUIRED**. Name and URL of affiliated institutions (in markdown) |
-
-### Dataset Tags/Keywords
-
-Tags are a list of keywords added to the dataset's metadata to describe or categorize the catalog, combining one or more words, that improve the
-user experience by allowing them to filter all the datasets seen on Radiant MLHub catalog to a speicif subset of types, e.g. satellite constellation,
-machine learning use-case, or data provider.
 
 ### Dataset Created and Updated Dates
 
